@@ -1,6 +1,8 @@
 ﻿
 using System.Net;
+#if NET_40
 using System.Threading.Tasks;
+#endif
 
 namespace PlainElastic.Net
 {
@@ -30,6 +32,7 @@ namespace PlainElastic.Net
 
         OperationResult Head(string command, string jsonData = null);
 
+#if NET_40
 
         Task<OperationResult> GetAsync(string command, string jsonData = null);
 
@@ -40,5 +43,7 @@ namespace PlainElastic.Net
         Task<OperationResult> DeleteAsync(string command, string jsonData = null);
 
         Task<OperationResult> HeadAsync(string command, string jsonData = null);
+
+#endif
     }
 }

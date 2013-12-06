@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
+#if NET_40
 using System.Threading.Tasks;
+#endif
 using PlainElastic.Net.Utils;
 
 namespace PlainElastic.Net
@@ -67,7 +69,7 @@ namespace PlainElastic.Net
             return ExecuteRequest("HEAD", command, jsonData);
         }
 
-
+#if NET_40
         public Task<OperationResult> GetAsync(string command, string jsondata = null)
         {
             return ExecuteRequestAsync("GET", command, jsondata);
@@ -93,6 +95,7 @@ namespace PlainElastic.Net
             return ExecuteRequestAsync("HEAD", command, jsonData);
         }
 
+#endif
 
         private OperationResult ExecuteRequest(string method, string command, string jsonData)
         {
@@ -147,7 +150,7 @@ namespace PlainElastic.Net
             return new OperationException(message, statusCode, webException);
         }
 
-
+#if NET_40
         private Task<OperationResult> ExecuteRequestAsync(string method, string command, string jsonData)
         {
             var executeCompletionSource = new TaskCompletionSource<OperationResult>();
@@ -230,6 +233,7 @@ namespace PlainElastic.Net
                 executeCompletionSource.TrySetResult(new OperationResult(result));
             }
         }
+#endif
 
 
         protected virtual HttpWebRequest CreateRequest(string method, string uri)

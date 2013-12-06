@@ -31,7 +31,11 @@ namespace PlainElastic.Net.Serialization
             public string _type;
             public string _id;
             public double _score;
+
+#if NET_40
+
             public dynamic[] sort;
+#endif
             public T _source;
             public Highlight highlight;
         }

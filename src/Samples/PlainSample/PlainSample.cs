@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+#if            NET_40
+
 using System.Threading.Tasks;
+#endif
+
+
 using PlainElastic.Net;
 using PlainElastic.Net.Queries;
 using PlainElastic.Net.Serialization;
@@ -59,9 +64,9 @@ namespace PlainSample
             GetTweet("1", serializer, connection);
 
             SearchTweets(connection, serializer);
-
+#if NET_40
             SearchTweetsAsync(connection, serializer).Wait();
-
+#endif
             CountTweets(connection, serializer);
 
             DeleteTweeterIndex(connection, serializer);
@@ -258,6 +263,7 @@ namespace PlainSample
         }
 
 
+#if NET_40
 
         private static Task<IEnumerable<Tweet>> SearchTweetsAsync(ElasticConnection connection, JsonNetSerializer serializer)
         {
@@ -286,6 +292,8 @@ namespace PlainSample
                                return searchResult.Documents;
                            });
         }
+
+#endif
 
         private static void PrintSearchResults(SearchResult<Tweet> searchResult, string searchCommand, string query, OperationResult results)
         {

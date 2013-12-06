@@ -8,6 +8,7 @@ namespace PlainElastic.Net.Tests.Serialization
     [Subject(typeof(JsonNetSerializer))]
     class When_sorted_query_result_deserialized
     {
+
         #region Sorted Query Json Result
         private static readonly string sortedQueryJsonResult =
 @"{
@@ -80,7 +81,7 @@ namespace PlainElastic.Net.Tests.Serialization
 
 
         Because of = () => result = jsonSerializer.ToSearchResult<object>(sortedQueryJsonResult);
-            
+
 
         It should_contain_correct_hits_count = () => 
                                                     result.hits.total.ShouldEqual(2);
@@ -102,5 +103,7 @@ namespace PlainElastic.Net.Tests.Serialization
 
         private static JsonNetSerializer jsonSerializer;
         private static SearchResult<object> result;
+
+
     }
 }

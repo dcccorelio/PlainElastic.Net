@@ -10,15 +10,16 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PlainElastic.Net.Tests</RootNamespace>
     <AssemblyName>PlainElastic.Net.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NET_40</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -31,19 +32,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Machine.Specifications, Version=0.5.14.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Machine.Specifications.0.5.14\lib\net40\Machine.Specifications.dll</HintPath>
+    <Reference Include="Machine.Specifications">
+      <HintPath>..\..\packages\Machine.Specifications.0.5.14\lib\net20\Machine.Specifications.dll</HintPath>
     </Reference>
-    <Reference Include="Machine.Specifications.Clr4">
-      <HintPath>..\..\packages\Machine.Specifications.0.5.14\lib\net40\Machine.Specifications.Clr4.dll</HintPath>
+    <Reference Include="Machine.Specifications.TDNetRunner">
+      <HintPath>..\..\packages\Machine.Specifications.0.5.14\lib\net20\Machine.Specifications.TDNetRunner.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Moq">
-      <HintPath>..\..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+      <HintPath>..\..\packages\Moq.4.0.10827\lib\NET35\Moq.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\packages\Newtonsoft.Json.4.0.7\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.4.0.7\lib\net35\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -396,12 +396,6 @@
     <Compile Include="Connection\When_CreateRequest_with_Credentials_called.cs" />
     <Compile Include="Connection\TestableConnection.cs" />
     <Compile Include="Connection\When_CreateRequest_with_Proxy_called.cs" />
-    <Compile Include="Integration\Connection\When_async_HEAD_request_on_valid_ES_instance.cs" />
-    <Compile Include="Integration\Connection\When_async_DELETE_request_on_valid_ES_instance.cs" />
-    <Compile Include="Integration\Connection\When_async_PUT_request_on_valid_ES_instance.cs" />
-    <Compile Include="Integration\Connection\When_async_POST_request_on_valid_ES_instance.cs" />
-    <Compile Include="Integration\Connection\When_invalid_async_GET_request_on_valid_ES_instance.cs" />
-    <Compile Include="Integration\Connection\When_async_GET_request_on_valid_ES_instance.cs" />
     <Compile Include="Integration\Connection\When_invalid_GET_request_on_valid_ES_instance.cs" />
     <Compile Include="Integration\Connection\When_partial_GET_request_on_valid_ES_instance.cs" />
     <Compile Include="Integration\Connection\When_full_GET_request_on_valid_ES_instance.cs" />
@@ -412,7 +406,6 @@
     <Compile Include="Serialization\When_scrolled_query_result_deserialized.cs" />
     <Compile Include="Serialization\When_delete_command_result_deserialized.cs" />
     <Compile Include="Serialization\When_range_facets_result_deserialized.cs" />
-    <Compile Include="Serialization\When_sorted_query_result_deserialized.cs" />
     <Compile Include="Serialization\When_status_command_result_deserialized.cs" />
     <Compile Include="Serialization\When_count_command_result_deserialized.cs" />
     <Compile Include="Serialization\When_bulk_operations_result_deserialized.cs" />
@@ -435,11 +428,10 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\PlainElastic.Net\PlainElastic.Net.csproj">
+    <ProjectReference Include="..\PlainElastic.Net\PlainElastic.Net-3.5.csproj">
       <Project>{7881C0A1-3020-45AC-944D-36DA5AE2D734}</Project>
-      <Name>PlainElastic.Net</Name>
+      <Name>PlainElastic.Net-3.5</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

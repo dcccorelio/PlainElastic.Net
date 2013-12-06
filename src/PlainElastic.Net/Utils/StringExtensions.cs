@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
+using PlainElastic.Net.Utils;
 
 
 namespace PlainElastic.Net.Utils
@@ -68,17 +69,17 @@ namespace PlainElastic.Net.Utils
 
         public static string Join(this IEnumerable<string> list)
         {
-            return list == null ? "" : String.Join("", list);
+            return list == null ? "" : String.Join("", list.ToArray());
         }
 
         public static string JoinWithSeparator(this IEnumerable<string> list, string separator)
         {
-            return list == null ? "" : String.Join(separator, list);
+            return list == null ? "" : String.Join(separator, list.ToArray());
         }
 
         public static string JoinWithComma(this IEnumerable<string> list)
         {
-            return list == null ? "" : String.Join(",", list);
+            return list == null ? "" : String.Join(",", list.ToArray());
         }
 
 
@@ -270,9 +271,5 @@ namespace PlainElastic.Net.Utils
                 intSymbol >>= 4;
             }
         }
-
-
-
-
     }
 }
