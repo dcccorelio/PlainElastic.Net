@@ -21,7 +21,6 @@ namespace PlainElastic.Net.Utils
             return PropertyNameFromExpresion(exp.Body);
         }
 
-
         private static string PropertyTypeFromExpresion(Expression exp)
         {
             MemberExpression memberExpression = exp as MemberExpression;
@@ -34,7 +33,7 @@ namespace PlainElastic.Net.Utils
             if (memberExpression == null)
                 return "";
 
-            return memberExpression.Type.Name;
+            return memberExpression.Type.Name.ToCamelCasing();
         }
 
         private static string PropertyNameFromExpresion(Expression exp, bool fullPath = true)
@@ -53,7 +52,7 @@ namespace PlainElastic.Net.Utils
             if (fullPath)
                 prefix = PropertyNameFromExpresion(memberExpression.Expression);
 
-            var name = memberExpression.Member.Name;
+            var name = memberExpression.Member.Name.ToCamelCasing();
 
             if (!prefix.IsNullOrEmpty())
                 return prefix + "." + name;

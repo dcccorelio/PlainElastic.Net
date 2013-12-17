@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using Newtonsoft.Json;
-using PlainElastic.Net.Utils;
-
 
 namespace PlainElastic.Net.Utils
 {
@@ -154,11 +151,17 @@ namespace PlainElastic.Net.Utils
             return value.ToString("F").Replace(", ", "|");;
         }
 
-
-
         public static string BeautifyJson(this string json)
         {
             return JsonBeautifier.Beautify(json);
+        }
+
+        public static string ToCamelCasing(this string value)
+        {
+            if (string.IsNullOrEmpty(value) || value.Length == 1) return value;
+
+            var firstCharacter = value[0].ToString(CultureInfo.InvariantCulture).ToLower();
+            return string.Format("{0}{1}", firstCharacter, value.Substring(1, value.Length - 1));
         }
 
         public static string ToEscapedJson(this string json)
