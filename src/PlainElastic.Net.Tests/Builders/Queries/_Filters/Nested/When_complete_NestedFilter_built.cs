@@ -13,6 +13,9 @@ namespace PlainElastic.Net.Tests.Builders.Queries
                                                 .Query( q=>q
                                                     .Custom("Query")
                                                  )
+                                                 .Filter(f=>f 
+                                                    .Custom("Filter")
+                                                 )
                                                 .ToString();
 
         It should_starts_with_nested_declaration = () => result.ShouldStartWith(@"{ 'nested': {".AltQuote());
@@ -21,9 +24,11 @@ namespace PlainElastic.Net.Tests.Builders.Queries
 
         It should_contain_cache_part = () => result.ShouldContain(@"'_cache': true".AltQuote());
         
-        It should_contain_query_part = () => result.ShouldContain(@"'query': Query ".AltQuote());
+        It should_contain_query_part = () => result.ShouldContain(@"'query': Query".AltQuote());
 
-        It should_return_correct_result = () => result.ShouldEqual(@"{ 'nested': { 'path': 'StringProperty','_cache': true,'query': Query } }".AltQuote());
+        It should_contain_filter_part = () => result.ShouldContain(@"'filter': Filter ".AltQuote());
+
+        It should_return_correct_result = () => result.ShouldEqual(@"{ 'nested': { 'path': 'StringProperty','_cache': true,'query': Query,'filter': Filter } }".AltQuote());
 
         private static string result;
     }
