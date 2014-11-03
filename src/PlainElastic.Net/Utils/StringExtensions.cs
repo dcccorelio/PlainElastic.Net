@@ -96,7 +96,7 @@ namespace PlainElastic.Net.Utils
                 {
                     yield return batch.ToString();
                     i = 0;
-                    batch.Clear();
+	                batch.Length = 0;
                 }
             }
 

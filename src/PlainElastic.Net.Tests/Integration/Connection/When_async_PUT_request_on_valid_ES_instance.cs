@@ -13,9 +13,9 @@ namespace PlainElastic.Net.Tests.Integration.Connection
 
 
         Because of = () => 
-            result = connection.PutAsync(command: "/test/foo/1", 
+            result = connection.Put(command: "/test/foo/1", 
                                          jsonData: "{ 'field': 'value' }".AltQuote()
-                                         ).Result;
+                                         );
 
         It should_return_OK = () =>
             result.Result.ShouldContain("\"ok\":true");

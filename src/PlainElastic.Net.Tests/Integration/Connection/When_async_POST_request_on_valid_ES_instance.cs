@@ -12,10 +12,10 @@ namespace PlainElastic.Net.Tests.Integration.Connection
         };
 
 
-        Because of = () => 
-            result = connection.PostAsync(command: "/test/foo", 
-                                          jsonData: "{ 'field': 'value' }".AltQuote()
-                                         ).Result;
+	    private Because of = () =>
+	                         result = connection.Post(command: "/test/foo",
+	                                                  jsonData: "{ 'field': 'value' }".AltQuote()
+		                                  );
 
         It should_return_OK = () =>
             result.Result.ShouldContain("\"ok\":true");

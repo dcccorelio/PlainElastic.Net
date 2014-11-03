@@ -1,11 +1,18 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlainElastic.Net", "src\PlainElastic.Net\PlainElastic.Net.csproj", "{7881C0A1-3020-45AC-944D-36DA5AE2D734}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlainElastic.Net.Tests", "src\PlainElastic.Net.Tests\PlainElastic.Net.Tests.csproj", "{226B2108-D427-410E-A889-FD5D8C494E34}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlainSample", "src\Samples\PlainSample\PlainSample.csproj", "{01D9A114-7E54-4C14-95ED-3C35E3F0A857}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BE4CF1B4-2411-445C-8022-7D916177D8AD}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

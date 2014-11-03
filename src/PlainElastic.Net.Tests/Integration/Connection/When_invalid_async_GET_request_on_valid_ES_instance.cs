@@ -14,7 +14,7 @@ namespace PlainElastic.Net.Tests.Integration.Connection
 
 
         Because of = () =>{
-            var aggregateException = Catch.Exception(connection.GetAsync(@"http://localhost:9200/invalid").Wait);
+            var aggregateException = Catch.Exception(() => connection.Get(@"http://localhost:9200/invalid"));
             exception = aggregateException.InnerException;
         };
 

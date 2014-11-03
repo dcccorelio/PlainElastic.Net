@@ -14,9 +14,9 @@ namespace PlainElastic.Net.Tests.Integration.Connection
 
 
         Because of = () => 
-            result = connection.DeleteAsync(command: "/test/foo/_query", 
+            result = connection.Delete(command: "/test/foo/_query", 
                                          jsonData: "{'term': { 'field': 'value' } }".AltQuote()
-                                         ).Result;
+                                         );
 
         It should_return_OK = () =>
             result.Result.ShouldContain("\"ok\":true");

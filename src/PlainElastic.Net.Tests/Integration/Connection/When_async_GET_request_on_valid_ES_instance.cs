@@ -12,7 +12,7 @@ namespace PlainElastic.Net.Tests.Integration.Connection
 
 
         Because of = () => 
-            result = connection.GetAsync(@"http://localhost:9200?pretty=true").Result;
+            result = connection.Get(@"http://localhost:9200?pretty=true");
 
 
         It should_return_OK = () => result.Result.ShouldContain("\"ok\" : true");

@@ -14,7 +14,7 @@ namespace PlainElastic.Net.Tests.Integration.Connection
 
 
         Because of = () => 
-            result = connection.HeadAsync(command: "/test/foo").Result;
+            result = connection.Head(command: "/test/foo");
 
         It should_return_empty_result = () =>
             result.Result.ShouldBeEmpty();
